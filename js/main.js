@@ -11,12 +11,12 @@ if (gotSeed == "") {
 } else {
   seed = parseInt(gotSeed);
 }
-$(document).ready(function() { 
+$(document).ready(function() {
   var startup = new Startup(seed);
 
 	var name = startupify(seed);
   var bg = getBackground(seed + 1);
-  
+
   var shadowAlpha = getAlpha(seed + 3, 0.3, 0.8);
   var shadowSize = randomInt(seed + 4, 300, 50);
   var slogan = makeSlogan(seed);
@@ -28,14 +28,14 @@ $(document).ready(function() {
   accent = startup.getAccent();
   complement = startup.getComplement();
   navTop = accent.setAlpha(0).rgba();
-  var headerSize = Math.max(randomInt(seed * 3 + 1, 12, 4), 
+  var headerSize = Math.max(randomInt(seed * 3 + 1, 12, 4),
   	randomInt(seed * 3 + 2, 12, 4));
-  var headerWeight = Math.max(randomInt(seed * 5 + 1, 11, 1), 
+  var headerWeight = Math.max(randomInt(seed * 5 + 1, 11, 1),
   	randomInt(seed * 5 + 2, 11, 1));
   var headerSpacing = randomInt(seed * 5 + 2, 40, -40) / 10;
   var headerFont = getLogoFont(seed * 7);
   var font = getFont(seed * 11);
-  var customers = getPeople(seed * 8, 3);
+  // var customers = getPeople(seed * 8, 3);
   var testimonials = makeTest(seed, 3);
   var icons = someChoices(seed * 9, fontAwesome, 3);
 
@@ -79,7 +79,7 @@ $(document).ready(function() {
   $(".btn-default").css("background-color", accent.rgba());
 
   $("#home-text-wrapper").css("margin-top", "20px");
-  
+
   if (navColoredAtTop) {
   	var navAlpha = getAlpha(seed * 243 * 243 * 9, 0.8, 1);
   	if (seedChance(seed * 243 * 243 * 3, 0.3)) {
@@ -124,9 +124,9 @@ $(document).ready(function() {
 
 	  if (seedChance(seed * 243, 0.1)) {
 	  	var blur = randomInt(seed * 243 * 3, 0, 8);
-	  	$("#home .before").css("filter", 
+	  	$("#home .before").css("filter",
 	  		$("#home .before").css("filter") + " blur(" + blur + "px)");
-	  	$("#home .before").css("-webkit-filter", 
+	  	$("#home .before").css("-webkit-filter",
 	  		$("#home .before").css("-webkit-filter") +  " blur(" + blur + "px)");
 	  }
 
@@ -143,19 +143,19 @@ $(document).ready(function() {
 	}
 
 
-  var team = getTeam(seed * 8);
-  var i = 0;
-  $("#team .team").each(function () {
-    if (i < team.length) {
-      var member = team[i];
-      $(this).find("img").attr("src", member.photo);
-      $(this).find("h2").html(member.name);
-      $(this).find("p").html(member.job);
-      i++;
-    } else {
-      $(this).hide();
-    }
-  });
+  // var team = getTeam(seed * 8);
+  // var i = 0;
+  // $("#team .team").each(function () {
+  //   if (i < team.length) {
+  //     var member = team[i];
+  //     $(this).find("img").attr("src", member.photo);
+  //     $(this).find("h2").html(member.name);
+  //     $(this).find("p").html(member.job);
+  //     i++;
+  //   } else {
+  //     $(this).hide();
+  //   }
+  // });
 
 
   $("#navigation").css("background", accent.rgba());
@@ -169,9 +169,6 @@ $(document).ready(function() {
   $("#subDesc1").html(subDescs[0].replace(/\*/g, subHeadings[0]).replace(/\+/g, subHeadingAdvbs[0]));
   $("#subDesc2").html(subDescs[1].replace(/\*/g, subHeadings[1]).replace(/\+/g, subHeadingAdvbs[1]));
   $("#subDesc3").html(subDescs[2].replace(/\*/g, subHeadings[2]).replace(/\+/g, subHeadingAdvbs[2]));
-  $("#name1").html(customers[0] + "<br><span class=\"text-muted\">" + makeTown(seed + 1) + "</span>");
-  $("#name2").html(customers[1] + "<br><span class=\"text-muted\">" + makeTown(seed + 2) + "</span>");
-  $("#name3").html(customers[2] + "<br><span class=\"text-muted\">" + makeTown(seed + 3) + "</span>");
   $("#test1").html(testimonials[0]);
   $("#test2").html(testimonials[1]);
   $("#test3").html(testimonials[2]);

@@ -49,7 +49,8 @@ function capitalizeFirst (word) {
 }
 
 function getBackground (seed) {
-	return bgRoot + seedChoice(seed, backgrounds);
+    var pic = Math.floor(Math.random() * (3 - 1 + 1)) + 1 + '.jpg';
+	return bgRoot + pic;
 }
 
 function getFont (seed) {
@@ -134,7 +135,7 @@ function getColor (seed) {
 }
 
 function getLogo (seed) {
-    var logo; 
+    var logo;
     if (random(seed) < 0.5) {
         // Use Font Awesome
         logo = seedChoice(seed, fontAwesome);
@@ -148,40 +149,40 @@ function getLogo (seed) {
 }
 
 /**
- * Returns an array of team member's photos and stuff. 
+ * Returns an array of team member's photos and stuff.
  */
-function getTeam (seed) {
-    var ratio = Math.min(random(seed), random(seed * 2));
-    var size = randomInt(seed * 4, 2, 8); 
-    var girlCount = Math.floor(size * ratio);
-    var guyCount = size - girlCount;
-    var girls = someChoices(seed, females, girlCount);
-    var guys = someChoices(seed, males, guyCount);
-    var jobs = someChoices(seed + 1, titles, girlCount + guyCount);
-    var mult = 3;
-    var results = [];
-    var m = 0;
-    var f = 0;
-    while (m < guyCount || f < girlCount) {   
-        if (random(seed * mult + 1) > 0.5 && f < girlCount) {
-            // Add the next girl
-            var name = femaleName(seed * mult) + " " + lastName(seed * mult + 2);
-            var photo = femaleRoot + girls[f];
-            var job = jobs[m + f];
-            results.push({'name': name, 'photo': photo, 'job': job});
-            f++;
-        } else if (m < guyCount) {
-            // Add the next guy
-            var name = maleName(seed * mult) + " " + lastName(seed * mult + 2);
-            var photo = maleRoot + guys[m];
-            var job = jobs[m + f];
-            results.push({'name': name, 'photo': photo, 'job': job});
-            m++;
-        }
-        mult *= 3;
-    }
-    return results;
-}
+// function getTeam (seed) {
+//     var ratio = Math.min(random(seed), random(seed * 2));
+//     var size = randomInt(seed * 4, 2, 8);
+//     var girlCount = Math.floor(size * ratio);
+//     var guyCount = size - girlCount;
+//     var girls = someChoices(seed, females, girlCount);
+//     var guys = someChoices(seed, males, guyCount);
+//     var jobs = someChoices(seed + 1, titles, girlCount + guyCount);
+//     var mult = 3;
+//     var results = [];
+//     var m = 0;
+//     var f = 0;
+//     while (m < guyCount || f < girlCount) {
+//         if (random(seed * mult + 1) > 0.5 && f < girlCount) {
+//             // Add the next girl
+//             var name = femaleName(seed * mult) + " " + lastName(seed * mult + 2);
+//             var photo = femaleRoot + girls[f];
+//             var job = jobs[m + f];
+//             results.push({'name': name, 'photo': photo, 'job': job});
+//             f++;
+//         } else if (m < guyCount) {
+//             // Add the next guy
+//             var name = maleName(seed * mult) + " " + lastName(seed * mult + 2);
+//             var photo = maleRoot + guys[m];
+//             var job = jobs[m + f];
+//             results.push({'name': name, 'photo': photo, 'job': job});
+//             m++;
+//         }
+//         mult *= 3;
+//     }
+//     return results;
+// }
 
 function getPeople (seed, n) {
     var results = [];

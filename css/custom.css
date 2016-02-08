@@ -1,8 +1,9 @@
 body {
   overflow-x: hidden;
+  font-family: 'Open Sans';
 }
 
-.btn-default, .btn, 
+.btn-default, .btn,
 .btn-default:focus, .btn:focus {
   background-image: none;
   border: none;
@@ -236,7 +237,7 @@ footer {
 }
 
 input:focus {
-  outline: none; 
+  outline: none;
 }
 
 
@@ -308,14 +309,14 @@ a:focus {outline:0 !important;}
 }
 
 #sponsorholder {
-  position: relative; 
-  left: 50%; 
+  position: relative;
+  left: 50%;
   float: left;
 }
 
 #sponsorinner {
-  position: relative; 
-  left: -50%; 
+  position: relative;
+  left: -50%;
   float: left;
 }
 
